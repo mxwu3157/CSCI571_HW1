@@ -1,0 +1,2 @@
+https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block
+https://stackoverflow.com/questions/4847850/is-it-possible-to-define-constants-in-css/48175165

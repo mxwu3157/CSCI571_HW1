@@ -1,0 +1,42 @@
+<!-- ------------------------------------ -->
+<!-- ------------------------------------ -->
+<pre style="font-size:15px; width:99%; height:400px; border:1px solid black; overflow:auto" id="tester"></pre>
+<script src="https://bytes.usc.edu/~saty/tools/xem/c/prtt.js"></script>
+<!-- ------------------------------------ -->
+<!-- add HTML+CSS above, JS below...      -->
+<!-- ------------------------------------ -->
+
+
+<script>
+  // fetch() is an alternate/better/newer way to fetch data,
+  // compared to XHR. Below, uncomment/comment either 'DATA'
+  // line...
+  //let DATA = 'data/data.json';
+  //let DATA='https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits';
+  let DATA ='https://drive.google.com/file/d/16dti5jFM53CQ7C8MbOiTxBG3aRjgGrHM/view?usp=sharing'
+  async function fetchData() {
+   const response = await fetch(DATA);
+
+    // prtt all response headers
+    for (let [key, value] of response.headers) {
+      prtt(`${key} = ${value}`);
+    }
+    prtt("----------------------------------------------------------");
+
+   let gd = await response.text(); // also try .json()
+   //prtt(gd);
+   return gd;
+  }// fetchData()
+
+  fetchData().then(
+    d=>prtt(d) // 'arrow function', eqvt to the following anonymous fn
+    /*function (d) {
+      prtt(d);
+    }*/
+  );//.then()
+
+  // exercise: make the .then() part of immediately
+  // executed fetchData() :) [in other words, avoid
+  // doing fetchData() above, and 'migrate' the .then() part]
+  // hint: }().then(
+</script>

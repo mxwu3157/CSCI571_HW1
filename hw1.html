@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    :root {
+      --glabal-width: 960px;
+      --card-margin-top: 100px;
+      --card-margin-left:150px;
+      --card-gap:5px
+    }
+    #wrapper {
+      width:var(--global-width);
+      position: absolute;
+      margin-left: auto; /*half of the width */
+      margin-top: auto; /* half of the height */
+      background-color:#212529;
+
+    }
+    .topnav {
+      background-color: #12141c;
+      text-align: center;
+    }
+
+    .topnav a {
+      float: center;
+      color: #f2f2f2;
+      text-shadow: 2px 2px 4px #f47920;
+      padding: 15px 40px;
+      font-size: 17px;
+      font-family: Arial, Helvetica, sans-serif;
+      display: inline-block;
+      font: "Comfortaa";
+    }
+    .section1{
+      position:relative;
+    }
+    .banner-text{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 28px;
+      font: "Comfortaa";
+      color: #f47920;
+
+    }
+    .section1-banner {
+      width: var(--glabal-width);  /*width of container */
+      height: 200px; /* height of container */
+      object-fit: cover;
+      object-position: 60% 90%; /* try 20px 10px */
+    }
+
+    #section2 {
+      height:350px;
+      margin-left:var(--card-margin-left);
+      margin-right:var(--card-margin-left);
+      margin-top:var(--card-margin-top);
+      margin-bottom:var(--card-margin-top);
+    }
+    .card {
+      display: inline-block;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      width: 210px;
+      height:350px;
+      padding: 5px;
+      background-color: black;
+      margin:10px;
+
+    }
+
+    .container {
+      padding: 10px 10px;
+    }
+
+
+
+    .card-img{
+      height: 150px; /* height of container */
+      object-fit: cover;
+      object-position: 50% 50%; /* try 20px 10px */
+    }
+    .container h4{
+      color:white;
+    }
+    .container p{
+      color:white;
+    }
+
+    .container.img-right{
+      right:0px;
+    }
+    div.relative {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    border: 3px solid #73AD21;
+    }
+
+    div.absolute {
+      position: absolute;
+      top: 80px;
+      right: 0;
+      width: 200px;
+      height: 100px;
+      border: 3px solid #73AD21;
+    }
+    #section3 img{
+      position: absolute;
+
+      right:0px;
+      width: 400px;
+      height: 200px;
+      background-color: green;
+      object-fit: contain;
+      object-position: auto;
+    }
+    #section3 p{
+      height:200px;
+      width:auto;
+      position:absolute;
+      right:500px;
+      background-color: yellow;
+
+    }
+
+  </style>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+
+</head>
+<body id="wrapper" >
+  <div class="topnav">
+    <a href="#home">Home</a>
+    <a href="#explore">Explore</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="section1">
+    <img class="section1-banner" src='images/rodeo-drive.jpg'>
+    <div class="banner-text">LA - The City of Angels</div>
+
+  </div>
+
+  <div id="section2">
+
+    <div class="card">
+      <div class="container">
+        <img src="images/griffith.jpg" alt="Avatar" style="width:100%;height:125px;">
+        <h4><b>John Doe</b></h4>
+        <p>Architect & Engineer</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="container">
+        <img src="images/mountains.jpg" alt="Avatar" style="width:100%;height:125px;">
+        <h4><b>John Doe</b></h4>
+        <p>Architect & Engineer</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="container">
+        <img src="images/universalstudios.jpg"  style="width:100%;height:125px;">
+        <h4><b>John Doe</b></h4>
+
+        <p>Architect & Engineer</p>
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+  <div id="section3">
+
+    <div style="height:500px; padding: 25px 50px;background-color:lightblue;">
+
+      <img src="images/lasky.png">
+      <p> blablabl</p>
+
+    </div>
+
+
+  </div>
+
+
+
+</body>
+<script>
+let DATA = 'data/data.json';
+async function fetchData() {
+ const response = await fetch(DATA);
+
+  // prtt all response headers
+  for (let [key, value] of response.headers) {
+    prtt(`${key} = ${value}`);
+  }
+  prtt("----------------------------------------------------------");
+
+ let gd = await response.text(); // also try .json()
+ //prtt(gd);
+ return gd;
+}// fetchData()
+
+fetchData().then(
+  d=>prtt(d) // 'arrow function', eqvt to the following anonymous fn
+  /*function (d) {
+    prtt(d);
+  }*/
+);//.the
+</script>
+<script src="https://bytes.usc.edu/~saty/tools/xem/c/prtt.js"></script>
+</html>
