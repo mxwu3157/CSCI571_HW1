@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
+  <title>Home</title>
 </head>
+<script>
 
+</script>
 <style>
 body {
 font-family: "Gill Sans", sans-serif;
@@ -32,10 +34,12 @@ p{font-size: 13px;}
   color: #f2f2f2;
   text-shadow: 2px 2px 4px #f47920;
   padding: 15px 40px;
-  font-size: 21px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
   width:45px;
-  margin-left: 5px;
+  margin-right:10px;
   display: inline-block;
+  font: 'Montserrat';
   text-decoration: none;
 }
 #topnav a:hover {
@@ -64,7 +68,7 @@ p{font-size: 13px;}
   left: 50%;
   font-size: 28px;
   font: "Comfortaa";
-  text-shadow:  0px  1px white;
+  text-shadow: 2px 2px 4px #f47920;
   color: #f47920;
   transform: translate(-50%, -50%);
 }
@@ -78,6 +82,7 @@ p{font-size: 13px;}
   background-color: #12141c;
   height:400px;
   overflow: auto; /* option 3 */
+
 }
 #section4{
   /*border: solid yellow;*/
@@ -96,7 +101,8 @@ footer{
   margin-right: auto;
   margin-top:10%;
   margin-bottom: 10%;
-  /*border: solid red;*/
+  /*border: solid red;
+  background-color: lightblue;*/
 }
 
 #section3 #container{
@@ -245,15 +251,21 @@ footer a{
   font-size:12px;
 }
 
+footer a:hover{
+  color: white;
+  text-decoration: underline;
+  font-size:12px;
+}
+
 </style>
 
 
 <body class="wrapper">
 
   <div id="topnav">
-    <a href=".">Home</a>
-    <a href="#explore">Explore</a>
-    <a href="#contact">Contact</a>
+    <a href="home.html">Home</a>
+    <a href="404.html">Explore</a>
+    <a href="404.html">Contact</a>
   </div>
 
   <div id="section1">
@@ -339,32 +351,28 @@ footer a{
 
     fetchData().then(
     d=>{
-      var myLinkList = document.getElementById("section2").getElementsByTagName("h");
-      for (let i = 0; i < myLinkList.length; i++) {
-        myLinkList[i].innerHTML=d['section2'][i]['heading'];
-      }
-      var myLinkList = document.getElementById("section2").getElementsByTagName("p");
-      for (let i = 0; i < myLinkList.length; i++) {
-        myLinkList[i].innerHTML=d['section2'][i]['text'];
-      }
-      var myLinkList = document.getElementById("section3").getElementsByTagName("p");
-      para="";
-      for (let i = 0; i < d['section3']['text'].length; i++){
-        para+=d['section3']['text'][i]+"<br><br>"
-      }
-      myLinkList[0].innerHTML=para;
+      for (let section in d){
+        console.log(section);
+        if(section == "section3"){
+          var pNodes = document.getElementById(section).getElementsByTagName("p");
+          para="";
+          for (let i = 0; i < d['section3']['text'].length; i++){
+            para+=d['section3']['text'][i]+"<br><br>";
+          }
+          pNodes[0].innerHTML=para;
 
-      var myLinkList = document.getElementById("section4").getElementsByTagName("h");
-      for (let i = 0; i < myLinkList.length; i++) {
-        myLinkList[i].innerHTML=d['section4'][i]['heading'];
-      }
-      var myLinkList = document.getElementById("section4").getElementsByTagName("p");
-      for (let i = 0; i < myLinkList.length; i++) {
-        myLinkList[i].innerHTML=d['section4'][i]['text'];
-      }
+        }
+        else {
+          var hNodes = document.getElementById(section).getElementsByTagName("h");
+          var pNodes = document.getElementById(section).getElementsByTagName("p");
+          for (let i = 0; i < hNodes.length; i++){
+            hNodes[i].innerHTML=d[section][i]['heading'];
+            pNodes[i].innerHTML=d[section][i]['text'];
+          }
 
+        }
       }
-
+    }
     );
 
 

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>404</title>
+</head>
+
+<style>
+  body {
+  font-family: "Gill Sans";
+  color: white;
+  }
+  p{font-size: 13px;}
+
+  .wrapper {
+    width:1000px;
+    height:100%;
+    background-color: #212529;
+    position: absolute;
+    margin:0;
+  }
+  #topnav{
+    background-color: #12141c;
+    text-align: center;
+    margin-top:auto;
+    margin-bottom:auto;
+    height:60px;
+  }
+
+  #topnav a {
+    color: #f2f2f2;
+    text-shadow: 1px 0px 0px white;
+    color:#f47920;
+    padding: 15px 40px;
+    font-size: 21px;
+    width:45px;
+    margin-right:10px;
+    display: inline-block;
+    text-decoration: none;
+  }
+  #topnav a:hover {
+    text-shadow: 2px 2px 4px #f47920;
+    font-size: 21px;
+    color:#f47920;
+  }
+  #section1{
+    position:relative;
+    width:1000px;
+    height:240px;
+  }
+  #section2{
+    position:relative;
+    width:1000px;
+    height:240px;
+  }
+  #section1 img{
+    width:1000px;
+    height:240px;
+    object-position: 20% 50%;
+    object-fit: cover;
+    position:relative;
+  }
+
+  .overlay1{
+    display: inline-block;
+    background: rgba(231,113,4,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #section1 div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 28px;
+    color: black;
+    transform: translate(-50%, -50%);
+  }
+  #section2 div{
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    margin:auto;
+    font-size: 21px;
+    color: white;
+    width:700px;
+    text-align: center;
+    transform: translate(-40%, -50%);
+  }
+  footer{
+    height:150px;
+    background-color: #12141c;
+  }
+  footer #container{
+    position:relative;
+    margin:auto;
+    height:80%;
+    width:73%;
+    padding:10px;
+
+  }
+  footer #subcontainer{
+    position:relative;
+    width:43%;
+    height:85%;
+    padding:10px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+  }
+  footer p{
+    color:white;
+    font-size: 12px;
+  }
+  footer a{
+    color: white;
+    text-decoration: none;
+    font-size:12px;
+  }
+
+  footer a:hover{
+    color: white;
+    text-decoration: underline;
+    font-size:12px;
+  }
+</style>
+
+<body class="wrapper">
+
+  <div id="topnav">
+    <a href="home.html">Home</a>
+    <a href="404.html">Explore</a>
+    <a href="404.html">Contact</a>
+  </div>
+
+  <div id="section1">
+    <img src='images/404-featured.jpg'>
+    <div class="overlay1"></div>
+    <div>Page Not Found</div>
+  </div>
+
+  <div id="section2">
+    <div> The page you you were looking for could not be found.
+      <br>It might have been removed, renamed, or does not exist in the first place!
+    </div>
+
+  </div>
+
+  <footer >
+    <div id="container">
+      <div id="subcontainer" style="top:-20px;left:-5px;">
+        <p>Tip the world over on its side and everything loose will land in Los Angeles.</p>
+        <p>-Frank Lloyd Wright</p>
+      </div>
+      <div id="subcontainer" style="left:13px;">
+        <p style="font-size:15px;">Designed By</p>
+        <p style="margin:20px;">Meixian Wu</p>
+        <a href="mailto:meixianw@usc.edu"> meixianw@usc.edu</a>
+        <br>
+        <a href="tel:8588666591"> (+1) 858 866 6591</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+
+</html>
