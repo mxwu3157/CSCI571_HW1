@@ -216,6 +216,11 @@ footer #subcontainer{
 
   <div id="section2">
     <div id="container">
+      <div class="card">
+        <img class="card-img" src="images/griffith.jpg"></img>
+        <h>griffith </h>
+        <p class="card-p">bbbbbbbbbb</p>
+      </div>
 
       <div class="card">
         <img class="card-img" src="images/mountains.jpg"></img>
@@ -276,69 +281,6 @@ footer #subcontainer{
     </div>
   </footer>
 
-  <script>
-    let DATA ='https://mxwu3157.github.io/CSCI571_HW1/data/data.json'
-
-    async function fetchData() {
-      const response = await fetch(DATA);
-      let gd = await response.json();
-      return gd;
-     }
-
-    fetchData().then(
-    d=>{
-
-      for (const x in d) {
-        var section = document.getElementById(x);
-        console.log(x);
-
-        if (x=='section2'){
-          for(var i = 0; i < d[x].length; i++){
-            var info = d[x][i];
-            console.log(info);
-
-            for(const y in info){
-              section.firstChild.childNodes[0].getElementsByTagName('h').innerHTML = info['heading'];
-
-              section.firstChild.childNodes[0].getElementsByTagName('p').innerHTML = info['text'];
-            }
-          }
-
-
-        };
-        if (x=='section3'){
-
-        };
-        if (x=='section4'){
-
-        };
-
-
-        if(d[x].length >1){
-          var section = document.getElementById(x);
-
-          for(var i = 0; i < d[x].length; i++){
-            var section_info = var block = d[x][i]
-            if(x== "section1"){
-
-            }
-            var block = d[x][i]
-            for (const t in block){
-              section.first
-            }
-            section
-          }
-
-          console.log(d[x].length);
-
-        }
-      }
-    }
-
-    );
-
-
-    </script>
 </body>
 
 

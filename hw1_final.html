@@ -78,7 +78,7 @@ p{font-size: 13px;}
   height:420px;
 }
 #section3{
-  /*border: solid yellow;*/
+  border: solid yellow;
   background-color: #12141c;
   height:400px;
 }
@@ -343,32 +343,6 @@ footer a{
 
     fetchData().then(
     d=>{
-      for (let section in d){
-        console.log(section);
-        if(section == "section3"){
-
-          var pNodes = document.getElementById(section).getElementsByTagName("p");
-          para="";
-          for (let i = 0; i < d['section3']['text'].length; i++){
-            para+=d['section3']['text'][i]+"<br><br>";
-          }
-          myLinkList[0].innerHTML=para;
-
-        }
-        else {
-          var hNodes = document.getElementById(section).getElementsByTagName("h");
-          var pNodes = document.getElementById(section).getElementsByTagName("p");
-          for (let i = 0; i < hNodes.length; i++){
-            hNodes[i].innerHTML=d[section][i]['heading'];
-            pNodes[i].innerHTML=d[section][i]['text'];
-          }
-
-        }
-      }
-    }
-
-    /*
-
       var myLinkList = document.getElementById("section2").getElementsByTagName("h");
       for (let i = 0; i < myLinkList.length; i++) {
         myLinkList[i].innerHTML=d['section2'][i]['heading'];
@@ -393,7 +367,7 @@ footer a{
         myLinkList[i].innerHTML=d['section4'][i]['text'];
       }
 
-    }*/
+      }
 
     );
 
