@@ -6,37 +6,35 @@
 <!-- add HTML+CSS above, JS below...      -->
 <!-- ------------------------------------ -->
 
+<body>
+
+<h2>Looping Object Properties</h2>
+<p id="section2"></p>
+<p id="section3"></p>
+
 
 <script>
-  // fetch() is an alternate/better/newer way to fetch data,
-  // compared to XHR. Below, uncomment/comment either 'DATA'
-  // line...
-  //let DATA = 'data/data.json';
-  //let DATA='https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits';
-  let DATA ='https://drive.google.com/file/d/16dti5jFM53CQ7C8MbOiTxBG3aRjgGrHM/view?usp=sharing'
+  let DATA ='https://mxwu3157.github.io/CSCI571_HW1/data/data.json'
+
   async function fetchData() {
-   const response = await fetch(DATA);
-
-    // prtt all response headers
-    for (let [key, value] of response.headers) {
-      prtt(`${key} = ${value}`);
-    }
-    prtt("----------------------------------------------------------");
-
-   let gd = await response.text(); // also try .json()
-   //prtt(gd);
-   return gd;
-  }// fetchData()
+    const response = await fetch(DATA);
+    let gd = await response.json();
+    return gd;
+   }
 
   fetchData().then(
-    d=>prtt(d) // 'arrow function', eqvt to the following anonymous fn
-    /*function (d) {
-      prtt(d);
-    }*/
-  );//.then()
+  d=>{
+    for (const x in d) {
+      if(d[x].length >1){
+        console.log(d[x].length);
 
-  // exercise: make the .then() part of immediately
-  // executed fetchData() :) [in other words, avoid
-  // doing fetchData() above, and 'migrate' the .then() part]
-  // hint: }().then(
-</script>
+      }
+      //console.log(d[x]);
+    }
+  }
+
+  );
+
+
+  </script>
+  </body>

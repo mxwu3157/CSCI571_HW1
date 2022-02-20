@@ -216,11 +216,7 @@ footer #subcontainer{
 
   <div id="section2">
     <div id="container">
-      <div class="card">
-        <img class="card-img" src="images/griffith.jpg"></img>
-        <h>Griffith Observatory</h>
-        <p class="card-p">bbbbbbbbbb</p>
-      </div>
+
       <div class="card">
         <img class="card-img" src="images/mountains.jpg"></img>
         <h>mountains </h>
@@ -280,6 +276,48 @@ footer #subcontainer{
     </div>
   </footer>
 
+  <script>
+    let DATA ='https://mxwu3157.github.io/CSCI571_HW1/data/data.json'
+
+    async function fetchData() {
+      const response = await fetch(DATA);
+      let gd = await response.json();
+      return gd;
+     }
+
+    fetchData().then(
+    d=>{
+      console.log(document.getElementById('section2').innerHTML)//.childNodes[0].childNodes[0].getElementsByTagName('h').innerHTML)
+
+      for (const x in d) {
+        var section = document.getElementById(x);
+        console.log(x);
+
+        if (x=='section2'){
+          for(var i = 0; i < d[x].length; i++){
+            var info = d[x][i];
+              //section.firstChild.childNodes[i].getElementsByTagName('h').innerHTML = info['heading'];
+              //section.firstChild.childNodes[i].getElementsByTagName('p').innerHTML = info['text'];
+              console.log()
+          }
+
+
+        };
+        if (x=='section3'){
+
+        };
+        if (x=='section4'){
+
+        };
+
+        }
+      }
+
+    );
+
+
+    </script>
 </body>
+
 
 </html>

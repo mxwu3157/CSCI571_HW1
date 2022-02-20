@@ -61,11 +61,16 @@
   border: solid yellow;
   height:500px;
 }
-
-
+#section4{
+  border: solid yellow;
+  height:700px;
+}
+footer{
+  border: solid yellow;
+  height:200px;
+}
 #section2 #container{
   /*margin:100px 150px;*/
-
   height:60%;
   width:75%;
   margin-left: auto;
@@ -89,18 +94,52 @@
   background-color: blue;
 }
 
-#container img{
+
+#section3-img{
   position: absolute;
   right:0px;
   width: 360px;
   background-color: white;
-  object-fit: contain;
 }
-#container p{
+#section3-p{
   position: absolute;
   left:0px;
   width: 360px;
   background-color: white;
+}
+
+#section4 #subcontainer{
+  /*margin:100px 150px;*/
+  height:30%;
+  width:75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:12%;
+  margin-bottom: 10%;
+  border: solid red;
+  background-color: blue;
+  position:relative;
+}
+#section4-img{
+  position: absolute;
+  width: 41%;
+  background-color: white;
+  border:green solid;
+}
+
+.text-subcontainer{
+  height:75%;
+  width:390px;
+  border: solid red;
+  background-color: purple;
+  position:relative;
+  padding:20px;
+}
+.text-subcontainer h{
+  background-color: yellow;
+}
+.text-subcontainer p{
+  background-color: green;
 }
 
 .card{
@@ -112,9 +151,15 @@
   display: inline-block;
   padding: 10px;
   border:solid green;
-  margin:5px;
+  margin:7px;
 }
-
+.card_img {
+  position: absolute;
+  right:0px;
+  width: 360px;
+  background-color: white;
+  object-fit: contain;
+}
 .card img{
   position: relative;
   width: 200px;
@@ -123,10 +168,35 @@
   object-fit: cover;
 
 }
-.card p{
+.card-p{
   height:150px;
   background-color: green;
 }
+footer #container{
+  position:relative;
+  margin:auto;
+  height:80%;
+  width:75%;
+  padding:10px;
+  border: solid red;
+  background-color: blue;
+
+}
+footer #subcontainer{
+  position:relative;
+  width:46%;
+  height:85%;
+  padding:10px;
+  border: solid red;
+  background-color: DarkSalmon;
+  display: inline-block;
+  color: white;
+  text-align: center;
+}
+
+
+
+
 
 </style>
 
@@ -146,37 +216,130 @@
 
   <div id="section2">
     <div id="container">
+
       <div class="card">
-        <img src="images/griffith.jpg"></img>
-        <h>Griffith Observatory</h>
-        <p>bbbbbbbbbb</p>
-      </div>
-      <div class="card">
-        <img src="images/mountains.jpg"></img>
+        <img class="card-img" src="images/mountains.jpg"></img>
         <h>mountains </h>
-        <p>bbbbbbbbbb</p>
+        <p class="card-p">bbbbbbbbbb</p>
       </div>
       <div class="card">
-        <img src="images/universalstudios.jpg"></img>
+        <img class="card-img" src="images/universalstudios.jpg"></img>
         <h>universalstudios </h>
-        <p>bbbbbbbbbb</p>
+        <p class="card-p">bbbbbbbbbb</p>
       </div>
     </div>
-
   </div>
 
   <div id="section3">
     <div id="container">
-      <img src="images/lasky.png"></img>
-      <p>lllllllllalallalallala</p>
-
+      <img  id="section3-img" src="images/lasky.png"></img>
+      <p id="section3-p">lalallallalla</p>
     </div>
 
   </div>
 
-  <div id="section4">  </div>
+  <div id="section4">
 
-  <div id="section5"></div>
+    <div id="subcontainer" style="margin-bottom:1%;">
+      <img id="section4-img" src="images/hollywood.jpg" style="left:0;">
+      <div class="text-subcontainer" style="right:-310px;">
+        <h>Hollywood</h>
+        <p>1111111111</p>
+
+      </div>
+    </div>
+
+    <div id="subcontainer" style="margin-top:0;">
+      <img id="section4-img" src="images/beach.jpg" style="right:0;">
+      <div class="text-subcontainer" >
+        <h style="right:0;">Beach</h>
+        <p >22222222222</p>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer >
+    <div id="container">
+      <div id="subcontainer">
+        <p>Tip the world on its side and everything loose will land in Los Angeles.</p>
+        <p>-Frank Lloyd Wright</p>
+      </div>
+      <div id="subcontainer">
+        <p>Designed By</p>
+        <p>Meixian Wu</p>
+        <a href="mailto:meixianw@usc.edu"> meixianw@usc.edu</a>
+        <br>
+        <a href="tel:8588666591"> (+1) 858 866 6591</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let DATA ='https://mxwu3157.github.io/CSCI571_HW1/data/data.json'
+
+    async function fetchData() {
+      const response = await fetch(DATA);
+      let gd = await response.json();
+      return gd;
+     }
+
+    fetchData().then(
+    d=>{
+
+      for (const x in d) {
+        var section = document.getElementById(x);
+        console.log(x);
+
+        if (x=='section2'){
+          for(var i = 0; i < d[x].length; i++){
+            var info = d[x][i];
+            console.log(info);
+
+            for(const y in info){
+              section.firstChild.childNodes[0].getElementsByTagName('h').innerHTML = info['heading'];
+
+              section.firstChild.childNodes[0].getElementsByTagName('p').innerHTML = info['text'];
+            }
+          }
+
+
+        };
+        if (x=='section3'){
+
+        };
+        if (x=='section4'){
+
+        };
+
+
+        if(d[x].length >1){
+          var section = document.getElementById(x);
+
+          for(var i = 0; i < d[x].length; i++){
+            var section_info = var block = d[x][i]
+            if(x== "section1"){
+
+            }
+            var block = d[x][i]
+            for (const t in block){
+              section.first
+            }
+            section
+          }
+
+          console.log(d[x].length);
+
+        }
+      }
+    }
+
+    );
+
+
+    </script>
 </body>
+
 
 </html>
